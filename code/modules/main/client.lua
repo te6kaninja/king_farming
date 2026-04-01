@@ -1,0 +1,1 @@
+lib.print.info('[client] main module loaded!')
