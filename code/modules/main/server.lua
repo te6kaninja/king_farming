@@ -1,1 +1,0 @@
-lib.print.info('[server] main module loaded!')

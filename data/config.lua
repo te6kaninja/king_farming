@@ -1,3 +1,5 @@
 return {
-    debug = true
+    debug = true,
+
+    
 }
