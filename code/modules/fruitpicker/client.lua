@@ -33,5 +33,35 @@ CreateThread(function()
     TaskStartScenarioInPlace(ped, boss.scenario, 0, true)
 
     -- Interaction
+    if boss.target then
+        exports.ox_target:addLocalEntity(ped, {
+            {
+                label = 'Talk Business',
+                icon = 'fas fa-lemon',
+                distance = boss.dist,
+                onSelect = function()
+                    lib.showContext('fruitpickerBoss')
+                end
+            }
+        })
+    else
+        lib.points.new({
+            coords = coords,
+            distance = boss.dist,
+            onEnter = function()
+                lib.showTextUI('[E] Talk Business')
+            end,
+
+            onExit = function()
+                lib.hideTextUI()
+            end,
+
+            nearby = function()
+                if IsControlJustPressed(0, 38) then
+                    lib.showContext('fruitpickerBoss')
+                end
+            end
+        })
+    end
     addBlip(coords.x, coords.y, coords.z, boss.blip)
 end)
